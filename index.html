@@ -8,5 +8,44 @@
     <script type="application/javascript" src="composeApp.js"></script>
 </head>
 <body>
+        <div class="loader"></div>
 </body>
+    <style>
+ body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensures the body takes up the full height of the viewport */
+            margin: 0; /* Removes default margin */
+        }
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 30px;
+  aspect-ratio: 1;
+  background: #554236;
+  display: grid;
+  animation: l4-0 1s infinite linear;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  background:#f77825;
+  animation: inherit;
+  animation-name: l4-1;
+}
+.loader::after {
+  background: #60B99A;
+  --s: 60deg;
+}
+@keyframes l4-0 {
+  0%,20% {transform: rotate(0)}
+  100%   {transform: rotate(90deg)}
+}
+@keyframes l4-1 {
+  50% {transform: rotate(var(--s,30deg))}
+  100% {transform: rotate(0)}
+}
+
+</style>
 </html>
